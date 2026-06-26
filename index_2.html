@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#1565C0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ashish Classes">
+<title>Ashish Classes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#F5F7FA;font-size:14px;max-width:430px;margin:0 auto}
+.pg{display:none;flex-direction:column;min-height:100vh}.pg.on{display:flex}
+#pg0{background:linear-gradient(160deg,#0D47A1,#1976D2);justify-content:center;align-items:center;padding:2rem 1rem;min-height:100vh}
+.card{background:#fff;border-radius:16px;padding:1.5rem;width:100%;max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.logo{width:72px;height:72px;border-radius:50%;background:#1565C0;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff}
+h1{text-align:center;font-size:18px;font-weight:700;color:#0D47A1;margin-bottom:4px}
+.sub{text-align:center;font-size:12px;color:#757575;margin-bottom:1rem}
+.rtabs{display:flex;border:1.5px solid #1565C0;border-radius:8px;overflow:hidden;margin-bottom:1rem}
+.rt{flex:1;padding:7px;text-align:center;font-size:12px;font-weight:600;background:#fff;color:#1565C0;border:none;cursor:pointer}
+.rt.on{background:#1565C0;color:#fff}
+label{display:block;font-size:12px;color:#424242;margin-bottom:4px;margin-top:.7rem}
+input,select,textarea{width:100%;border:1.5px solid #E0E0E0;border-radius:8px;padding:9px 12px;font-size:14px;outline:none;background:#fff;font-family:inherit}
+input:focus,select:focus{border-color:#1565C0}
+.sbtn{width:100%;background:#1565C0;color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;margin-top:.8rem}
+.hint{margin-top:.8rem;padding:8px;background:#E3F2FD;border-radius:8px;font-size:11px;color:#0D47A1;line-height:1.6}
+.top{background:#1565C0;color:#fff;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;height:50px;flex-shrink:0;position:sticky;top:0;z-index:99}
+.tl{display:flex;align-items:center;gap:8px}
+.tav{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.tt{font-size:14px;font-weight:700}.ts{font-size:11px;opacity:.8}
+.obtn{background:none;border:none;color:#fff;cursor:pointer;font-size:13px}
+.scroll{flex:1;padding:1rem;overflow-y:auto}
+.bnav{background:#fff;border-top:1px solid #E0E0E0;display:flex;position:sticky;bottom:0;z-index:99}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px;cursor:pointer;font-size:10px;color:#757575;gap:2px;border:none;background:none}
+.ni.on{color:#1565C0}.nii{font-size:18px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.75rem}
+.sc{background:#fff;border-radius:10px;padding:.8rem;box-shadow:0 2px 8px rgba(21,101,192,.1)}
+.sl{font-size:11px;color:#757575;margin-bottom:4px}.sv{font-size:20px;font-weight:700;color:#1565C0}
+.bc{background:#fff;border-radius:10px;padding:.8rem;margin-bottom:.6rem;box-shadow:0 2px 8px rgba(21,101,192,.1)}
+.bt{font-size:13px;font-weight:600;color:#0D47A1;margin-bottom:.6rem}
+.nc{background:#E3F2FD;border-left:3px solid #1565C0;border-radius:0 6px 6px 0;padding:8px 10px;margin-bottom:8px}
+.nt{font-size:12px;font-weight:600;color:#0D47A1}.nb{font-size:11px;color:#424242;margin-top:2px}.nd{font-size:10px;color:#757575;margin-top:2px}
+.amenu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.8rem}
+.at{background:#fff;border-radius:10px;padding:.8rem;box-shadow:0 2px 8px rgba(21,101,192,.1);display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;border:none;width:100%}
+.at:active{opacity:.7}.ati{font-size:24px}.atl{font-size:11px;font-weight:600;color:#424242;text-align:center}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-end;justify-content:center}
+.ov.on{display:flex}
+.mo{background:#fff;border-radius:16px 16px 0 0;padding:1rem;width:100%;max-width:430px;max-height:85vh;overflow-y:auto}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.mt{font-size:15px;font-weight:700}.mx{background:none;border:none;font-size:20px;cursor:pointer;color:#757575}
+.brow{display:flex;gap:8px;margin-top:.8rem}
+.bo{flex:1;background:none;border:1.5px solid #1565C0;color:#1565C0;border-radius:8px;padding:9px;font-size:13px;font-weight:600;cursor:pointer}
+.bf{flex:1;background:#1565C0;border:none;color:#fff;border-radius:8px;padding:9px;font-size:13px;font-weight:600;cursor:pointer}
+.si{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:.5px solid #E0E0E0}
+.si:last-child{border-bottom:none}
+.sav{width:34px;height:34px;border-radius:50%;background:#E3F2FD;color:#0D47A1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0}
+.ok{display:inline-block;border-radius:20px;padding:2px 8px;font-size:11px;font-weight:500;background:#E8F5E9;color:#2E7D32}
+.wn{display:inline-block;border-radius:20px;padding:2px 8px;font-size:11px;font-weight:500;background:#FFF3E0;color:#E65100}
+.tb{width:100%;border-collapse:collapse;font-size:12px}
+.tb th{text-align:left;font-size:11px;font-weight:600;color:#757575;padding:5px 0;border-bottom:1.5px solid #E0E0E0}
+.tb td{padding:7px 0;border-bottom:.5px solid #E0E0E0;vertical-align:middle}
+.tb tr:last-child td{border-bottom:none}
+.chip{display:inline-block;border-radius:5px;padding:2px 7px;font-size:11px;font-weight:600;background:#E8F5E9;color:#2E7D32}
+.tabs{display:flex;background:#F5F7FA;border-radius:8px;padding:3px;margin-bottom:.8rem;gap:3px}
+.tab{flex:1;padding:6px 4px;text-align:center;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;color:#757575;border:none;background:none}
+.tab.on{background:#fff;color:#1565C0;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+</style>
+</head>
+<body>
+<div class="pg on" id="pg0">
+  <div class="card">
+    <div class="logo">AC</div>
+    <h1>Ashish Classes</h1>
+    <div class="sub">Class 9 &amp; 10 &middot; Maths &amp; Science</div>
+    <div class="rtabs">
+      <button class="rt on" id="r0" onclick="setRole(0)">Student</button>
+      <button class="rt" id="r1" onclick="setRole(1)">Parent</button>
+      <button class="rt" id="r2" onclick="setRole(2)">Admin</button>
+    </div>
+    <label>Login ID</label><input id="lid" placeholder="Enter your ID" autocomplete="off">
+    <label>Password</label><input id="lpw" type="password" placeholder="Enter password">
+    <button class="sbtn" onclick="login()">Sign In</button>
+    <div class="hint">Contact Ashish Sir for your Login ID &amp; Password</div>
+  </div>
+</div>
+
+<div class="pg" id="pg1">
+  <div class="top"><div class="tl"><div class="tav" id="av1">AC</div><div><div class="tt">Ashish Classes</div><div class="ts" id="sname">Student</div></div></div><button class="obtn" onclick="logout()">Logout</button></div>
+  <div class="scroll">
+    <div id="t0">
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px">Good day! &#128075;</div>
+      <div class="r2">
+        <div class="sc"><div class="sl">Attendance</div><div class="sv" style="color:#2E7D32" id="s-att">--</div></div>
+        <div class="sc"><div class="sl">Fees due</div><div class="sv" style="color:#E65100" id="s-fee">&#8377;0</div></div>
+      </div>
+      <div class="bc"><div class="bt">&#128226; Notices</div><div id="s-notices"><div style="color:#757575;font-size:12px">No notices yet</div></div></div>
+    </div>
+    <div id="t1" style="display:none">
+      <div class="bc"><div class="bt">&#128197; Attendance</div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:10px;color:#757575;margin-bottom:4px"><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div></div>
+        <div id="attg" style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px"></div>
+      </div>
+    </div>
+    <div id="t2" style="display:none">
+      <div class="bc">
+        <div class="tabs"><button class="tab on" onclick="st2('mm','ms',this)">Maths</button><button class="tab" onclick="st2('ms','mm',this)">Science</button></div>
+        <div id="mm"><table class="tb"><thead><tr><th>Test</th><th>Date</th><th>Marks</th><th>Grade</th></tr></thead><tbody id="mm-tb"><tr><td colspan="4" style="color:#757575;text-align:center">No marks yet</td></tr></tbody></table></div>
+        <div id="ms" style="display:none"><table class="tb"><thead><tr><th>Test</th><th>Date</th><th>Marks</th><th>Grade</th></tr></thead><tbody id="ms-tb"><tr><td colspan="4" style="color:#757575;text-align:center">No marks yet</td></tr></tbody></table></div>
+      </div>
+    </div>
+    <div id="t3" style="display:none">
+      <div class="bc">
+        <div class="tabs"><button class="tab on" onclick="st2('nm','ns',this)">Maths</button><button class="tab" onclick="st2('ns','nm',this)">Science</button></div>
+        <div id="nm"><div style="color:#757575;text-align:center;padding:1rem;font-size:12px">No notes yet</div></div>
+        <div id="ns" style="display:none"><div style="color:#757575;text-align:center;padding:1rem;font-size:12px">No notes yet</div></div>
+      </div>
+    </div>
+    <div id="t4" style="display:none">
+      <div class="bc"><div class="bt">&#128176; Fees</div><div id="fees-list"><div style="color:#757575;font-size:12px;text-align:center;padding:.5rem">No records yet</div></div></div>
+    </div>
+  </div>
+  <div class="bnav">
+    <button class="ni on" id="n0" onclick="stab(0,this)"><div class="nii">&#127968;</div><span>Home</span></button>
+    <button class="ni" id="n1" onclick="stab(1,this)"><div class="nii">&#128197;</div><span>Attend.</span></button>
+    <button class="ni" id="n2" onclick="stab(2,this)"><div class="nii">&#128202;</div><span>Marks</span></button>
+    <button class="ni" id="n3" onclick="stab(3,this)"><div class="nii">&#128218;</div><span>Notes</span></button>
+    <button class="ni" id="n4" onclick="stab(4,this)"><div class="nii">&#128176;</div><span>Fees</span></button>
+  </div>
+</div>
+
+<div class="pg" id="pg2">
+  <div class="top"><div class="tl"><div class="tav">AC</div><div><div class="tt">Ashish Classes</div><div class="ts">Parent Portal</div></div></div><button class="obtn" onclick="logout()">Logout</button></div>
+  <div class="scroll">
+    <div class="bc"><div class="bt">&#128226; Notices</div><div id="p-notices"><div style="color:#757575;font-size:12px">No notices yet</div></div></div>
+  </div>
+  <div class="bnav"><button class="ni on"><div class="nii">&#127968;</div><span>Home</span></button></div>
+</div>
+
+<div class="pg" id="pg3">
+  <div class="top"><div class="tl"><div class="tav">A</div><div><div class="tt">Admin Panel</div><div class="ts">Ashish Classes</div></div></div><button class="obtn" onclick="logout()">Logout</button></div>
+  <div class="scroll">
+    <div class="r2">
+      <div class="sc"><div class="sl">Students</div><div class="sv" id="sc">0</div></div>
+      <div class="sc"><div class="sl">Notices</div><div class="sv" id="nc">0</div></div>
+    </div>
+    <div style="font-size:13px;font-weight:700;margin-bottom:8px">Quick actions</div>
+    <div class="amenu">
+      <button class="at" onclick="om('m1')"><div class="ati">&#10133;</div><div class="atl">Add student</div></button>
+      <button class="at" onclick="om('m2')"><div class="ati">&#128197;</div><div class="atl">Mark attendance</div></button>
+      <button class="at" onclick="om('m3')"><div class="ati">&#128221;</div><div class="atl">Add marks</div></button>
+      <button class="at" onclick="om('m4')"><div class="ati">&#128226;</div><div class="atl">Send notice</div></button>
+      <button class="at" onclick="om('m5')"><div class="ati">&#128176;</div><div class="atl">Record fees</div></button>
+      <button class="at" onclick="om('m6')"><div class="ati">&#128218;</div><div class="atl">Add note</div></button>
+    </div>
+    <div class="bc"><div class="bt">Students</div><div id="stu-list"><div style="color:#757575;text-align:center;padding:.5rem;font-size:12px">No students yet</div></div></div>
+    <div class="bc"><div class="bt">&#128226; Notices</div><div id="admin-notices"><div style="color:#757575;font-size:12px">No notices yet</div></div></div>
+  </div>
+  <div class="bnav">
+    <button class="ni on"><div class="nii">&#127968;</div><span>Home</span></button>
+    <button class="ni" onclick="om('m1')"><div class="nii">&#10133;</div><span>Add</span></button>
+    <button class="ni" onclick="om('m4')"><div class="nii">&#128226;</div><span>Notice</span></button>
+    <button class="ni" onclick="om('m5')"><div class="nii">&#128176;</div><span>Fees</span></button>
+  </div>
+</div>
+
+<div class="ov" id="m1"><div class="mo"><div class="mh"><div class="mt">Add Student</div><button class="mx" onclick="cm('m1')">&#10005;</button></div>
+<label>Full name</label><input id="f1" placeholder="e.g. Rahul Sharma">
+<label>Login ID</label><input id="f2" placeholder="e.g. STU001">
+<label>Password</label><input id="f3" type="password">
+<label>Class</label><select id="f4"><option>Class 9A</option><option>Class 9B</option><option>Class 10A</option><option>Class 10B</option></select>
+<label>Monthly fees</label><input id="f5" type="number" value="1200">
+<div class="brow"><button class="bo" onclick="cm('m1')">Cancel</button><button class="bf" onclick="addStu()">Add</button></div></div></div>
+
+<div class="ov" id="m2"><div class="mo"><div class="mh"><div class="mt">Mark Attendance</div><button class="mx" onclick="cm('m2')">&#10005;</button></div>
+<label>Date</label><input id="a1" type="date">
+<label>Class</label><select id="a2"><option>Class 9A</option><option>Class 9B</option><option>Class 10A</option><option>Class 10B</option></select>
+<button class="bf" style="width:100%;margin-top:.8rem" onclick="loadAL()">Load students</button>
+<div id="al" style="margin-top:8px"></div>
+<div class="brow"><button class="bo" onclick="cm('m2')">Close</button></div></div></div>
+
+<div class="ov" id="m3"><div class="mo"><div class="mh"><div class="mt">Add Marks</div><button class="mx" onclick="cm('m3')">&#10005;</button></div>
+<label>Student ID</label><input id="mk1" placeholder="STU001">
+<label>Test name</label><input id="mk2" placeholder="Unit Test 4">
+<label>Subject</label><select id="mk3"><option>Maths</option><option>Science</option></select>
+<label>Marks / Total</label>
+<div style="display:flex;gap:8px"><input id="mk4" type="number" placeholder="42" style="flex:1"><input id="mk5" type="number" value="50" style="flex:1"></div>
+<label>Date</label><input id="mk6" type="date">
+<div class="brow"><button class="bo" onclick="cm('m3')">Cancel</button><button class="bf" onclick="saveMk()">Save</button></div></div></div>
+
+<div class="ov" id="m4"><div class="mo"><div class="mh"><div class="mt">Send Notice</div><button class="mx" onclick="cm('m4')">&#10005;</button></div>
+<label>Title</label><input id="n1i" placeholder="Extra class Sunday">
+<label>Message</label><textarea id="n2i" rows="3"></textarea>
+<div class="brow"><button class="bo" onclick="cm('m4')">Cancel</button><button class="bf" onclick="saveNotice()">Send</button></div></div></div>
+
+<div class="ov" id="m5"><div class="mo"><div class="mh"><div class="mt">Record Payment</div><button class="mx" onclick="cm('m5')">&#10005;</button></div>
+<label>Student ID</label><input id="fp1" placeholder="STU001">
+<label>Month</label><input id="fp2" placeholder="June 2026">
+<label>Amount</label><input id="fp3" type="number" value="1200">
+<label>Mode</label><select id="fp4"><option>Cash</option><option>UPI</option><option>Bank transfer</option></select>
+<div class="brow"><button class="bo" onclick="cm('m5')">Cancel</button><button class="bf" onclick="saveFee()">Record</button></div></div></div>
+
+<div class="ov" id="m6"><div class="mo"><div class="mh"><div class="mt">Add Note</div><button class="mx" onclick="cm('m6')">&#10005;</button></div>
+<label>Title</label><input id="nt1" placeholder="Chapter 7 Notes">
+<label>Subject</label><select id="nt2"><option>Maths</option><option>Science</option></select>
+<label>Description</label><textarea id="nt3" rows="2"></textarea>
+<div class="brow"><button class="bo" onclick="cm('m6')">Cancel</button><button class="bf" onclick="saveNote()">Add</button></div></div></div>
+
+<script>
+var cs=0;
+function gd(k){try{return JSON.parse(localStorage.getItem(k))||{}}catch(e){return {}}}
+function sd(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function ga(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return []}}
+function sa(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var U=gd('ac_u');
+if(!U.ADMIN){U.ADMIN={n:'Ashish Sir',p:'@dm1n',r:'admin'};sd('ac_u',U);}
+function setRole(i){[0,1,2].forEach(function(j){document.getElementById('r'+j).classList.toggle('on',j===i);});document.getElementById('lid').value=i===2?'ADMIN':'';document.getElementById('lpw').value='';}
+function login(){
+  var id=document.getElementById('lid').value.trim().toUpperCase();
+  var pw=document.getElementById('lpw').value.trim();
+  if(!id||!pw){alert('Enter ID and password!');return;}
+  var U=gd('ac_u');var u=U[id];
+  if(!u){alert('ID not found!');return;}
+  if(u.p!==pw){alert('Wrong password!');return;}
+  document.getElementById('pg0').classList.remove('on');
+  if(u.r==='admin'){document.getElementById('av1').textContent='A';document.getElementById('pg3').classList.add('on');loadAdmin();}
+  else if(u.r==='student'){document.getElementById('sname').textContent=u.n+' \u00b7 '+(u.c||'');document.getElementById('av1').textContent=(u.n||'S')[0];document.getElementById('pg1').classList.add('on');loadStu(id);}
+  else{document.getElementById('pg2').classList.add('on');loadN('p-notices');}
+}
+function logout(){['pg1','pg2','pg3'].forEach(function(p){document.getElementById(p).classList.remove('on');});document.getElementById('pg0').classList.add('on');cs=0;}
+function stab(i,btn){document.getElementById('t'+cs).style.display='none';document.getElementById('n'+cs).classList.remove('on');document.getElementById('t'+i).style.display='';btn.classList.add('on');cs=i;}
+function st2(s,h,btn){document.getElementById(s).style.display='';document.getElementById(h).style.display='none';btn.closest('.bc').querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});btn.classList.add('on');}
+function om(id){document.getElementById(id).classList.add('on');}
+function cm(id){document.getElementById(id).classList.remove('on');}
+document.querySelectorAll('.ov').forEach(function(m){m.onclick=function(e){if(e.target===m)m.classList.remove('on');};});
+function loadN(el){var ns=ga('ac_ns');var h='';ns.slice().reverse().forEach(function(r){h+='<div class="nc"><div class="nt">'+r.t+'</div><div class="nb">'+r.b+'</div><div class="nd">'+r.d+'</div></div>';});document.getElementById(el).innerHTML=h||'<div style="color:#757575;font-size:12px">No notices yet</div>';}
+function loadStu(id){
+  loadN('s-notices');
+  var att=ga('ac_a_'+id);var p=0,g='';
+  att.forEach(function(r){p+=(r.s==='P'?1:0);var bg=r.s==='P'?'#E8F5E9;color:#2E7D32':r.s==='A'?'#FFEBEE;color:#C62828':'#FFF3E0;color:#E65100';g+='<div style="aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;background:'+bg+'">'+r.d+'</div>';});
+  document.getElementById('attg').innerHTML=g||'<div style="color:#757575;font-size:11px;grid-column:span 7;text-align:center;padding:.5rem">No records yet</div>';
+  document.getElementById('s-att').textContent=att.length?Math.round(p/att.length*100)+'%':'--';
+  var mk=ga('ac_m_'+id);var mm='',ms='';
+  mk.forEach(function(r){var pc=Math.round(r.m/r.t*100);var g=pc>=90?'A+':pc>=80?'A':pc>=70?'B+':pc>=60?'B':'C';var row='<tr><td>'+r.tn+'</td><td>'+r.dt+'</td><td>'+r.m+'/'+r.t+'</td><td><span class="chip">'+g+'</span></td></tr>';if(r.s==='Maths')mm+=row;else ms+=row;});
+  document.getElementById('mm-tb').innerHTML=mm||'<tr><td colspan="4" style="color:#757575;text-align:center">No marks yet</td></tr>';
+  document.getElementById('ms-tb').innerHTML=ms||'<tr><td colspan="4" style="color:#757575;text-align:center">No marks yet</td></tr>';
+  var fe=ga('ac_f_'+id);var due=0,fh='';
+  fe.forEach(function(r){if(r.st!=='Paid')due+=r.a;fh+='<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:.5px solid #E0E0E0"><span style="font-size:13px">'+r.mo+'</span><span class="'+(r.st==='Paid'?'ok':'wn')+'">'+r.st+' \u2014 \u20b9'+r.a+'</span></div>';});
+  document.getElementById('s-fee').textContent='\u20b9'+due;
+  document.getElementById('fees-list').innerHTML=fh||'<div style="color:#757575;font-size:12px;text-align:center;padding:.5rem">No records yet</div>';
+  var no=ga('ac_no');var nm='',ns2='';
+  no.forEach(function(r){var row='<div class="si"><div style="font-size:20px">&#128196;</div><div><div style="font-size:13px;font-weight:500">'+r.t+'</div><div style="font-size:11px;color:#757575">'+r.s+' \u00b7 '+r.d+'</div></div></div>';if(r.s==='Maths')nm+=row;else ns2+=row;});
+  document.getElementById('nm').innerHTML=nm||'<div style="color:#757575;text-align:center;padding:1rem;font-size:12px">No notes yet</div>';
+  document.getElementById('ns').innerHTML=ns2||'<div style="color:#757575;text-align:center;padding:1rem;font-size:12px">No notes yet</div>';
+}
+function loadAdmin(){
+  var U=gd('ac_u');var c=0,h='';
+  Object.keys(U).forEach(function(id){var u=U[id];if(u.r!=='student')return;c++;var i=(u.n||'?').split(' ').map(function(w){return w[0];}).join('').substring(0,2);h+='<div class="si"><div class="sav">'+i+'</div><div style="flex:1"><div style="font-size:13px;font-weight:500">'+u.n+'</div><div style="font-size:11px;color:#757575">'+(u.c||'')+' \u00b7 '+id+'</div></div><span class="ok">Active</span></div>';});
+  document.getElementById('sc').textContent=c;
+  document.getElementById('stu-list').innerHTML=h||'<div style="color:#757575;text-align:center;padding:.5rem;font-size:12px">No students yet. Add some!</div>';
+  loadN('admin-notices');document.getElementById('nc').textContent=ga('ac_ns').length;
+}
+function addStu(){
+  var n=document.getElementById('f1').value.trim();var id=document.getElementById('f2').value.trim().toUpperCase();var pw=document.getElementById('f3').value.trim();var cls=document.getElementById('f4').value;var fee=parseInt(document.getElementById('f5').value)||1200;
+  if(!n||!id||!pw){alert('Name, ID and password required!');return;}
+  var U=gd('ac_u');if(U[id]){alert('ID exists!');return;}
+  U[id]={n:n,p:pw,r:'student',c:cls,f:fee};sd('ac_u',U);
+  cm('m1');alert('Student added!\nName: '+n+'\nID: '+id+'\nPassword: '+pw+'\nClass: '+cls);
+  loadAdmin();['f1','f2','f3'].forEach(function(x){document.getElementById(x).value='';});
+}
+function loadAL(){
+  var date=document.getElementById('a1').value;var cls=document.getElementById('a2').value;
+  if(!date){alert('Select date!');return;}
+  var U=gd('ac_u');var h='';
+  Object.keys(U).forEach(function(id){var u=U[id];if(u.r!=='student'||u.c!==cls)return;var i=u.n[0];
+    h+='<div class="si" style="padding:5px 0"><div class="sav" style="width:28px;height:28px;font-size:11px">'+i+'</div><div style="flex:1;font-size:12px">'+u.n+'</div><div style="display:flex;gap:4px"><button onclick="mA(\''+id+'\',\''+date+'\',\'P\',this)" style="padding:3px 8px;border-radius:5px;border:1px solid #2E7D32;background:#E8F5E9;color:#2E7D32;font-size:11px;cursor:pointer;font-weight:600">P</button><button onclick="mA(\''+id+'\',\''+date+'\',\'A\',this)" style="padding:3px 8px;border-radius:5px;border:1px solid #E0E0E0;background:none;color:#757575;font-size:11px;cursor:pointer">A</button><button onclick="mA(\''+id+'\',\''+date+'\',\'L\',this)" style="padding:3px 8px;border-radius:5px;border:1px solid #E0E0E0;background:none;color:#757575;font-size:11px;cursor:pointer">L</button></div></div>';
+  });
+  document.getElementById('al').innerHTML=h||'<div style="color:#757575;text-align:center;font-size:12px">No students in '+cls+'</div>';
+}
+function mA(id,date,s,btn){
+  var att=ga('ac_a_'+id);var day=new Date(date).getDate();var idx=att.findIndex(function(r){return r.dt===date;});
+  if(idx>=0)att[idx]={dt:date,d:day,s:s};else att.push({dt:date,d:day,s:s});sa('ac_a_'+id,att);
+  btn.parentElement.querySelectorAll('button').forEach(function(b){b.style.background='none';b.style.borderColor='#E0E0E0';b.style.color='#757575';b.style.fontWeight='normal';});
+  var c=s==='P'?['#E8F5E9','#2E7D32']:s==='A'?['#FFEBEE','#C62828']:['#FFF3E0','#E65100'];
+  btn.style.background=c[0];btn.style.borderColor=c[1];btn.style.color=c[1];btn.style.fontWeight='600';
+}
+function saveMk(){
+  var id=document.getElementById('mk1').value.trim().toUpperCase();var tn=document.getElementById('mk2').value.trim();var s=document.getElementById('mk3').value;var m=parseInt(document.getElementById('mk4').value);var t=parseInt(document.getElementById('mk5').value)||50;var dt=document.getElementById('mk6').value;
+  if(!id||!tn||!m||!dt){alert('Fill all fields!');return;}
+  var mk=ga('ac_m_'+id);mk.push({tn:tn,s:s,m:m,t:t,dt:dt});sa('ac_m_'+id,mk);
+  cm('m3');alert('Marks saved!');['mk1','mk2','mk4'].forEach(function(x){document.getElementById(x).value='';});
+}
+function saveNotice(){
+  var t=document.getElementById('n1i').value.trim();var b=document.getElementById('n2i').value.trim();
+  if(!t||!b){alert('Fill all fields!');return;}
+  var ns=ga('ac_ns');ns.push({t:t,b:b,d:new Date().toISOString().split('T')[0]});sa('ac_ns',ns);
+  cm('m4');alert('Notice sent!');document.getElementById('n1i').value='';document.getElementById('n2i').value='';loadAdmin();
+}
+function saveFee(){
+  var id=document.getElementById('fp1').value.trim().toUpperCase();var mo=document.getElementById('fp2').value.trim();var a=parseInt(document.getElementById('fp3').value);var mode=document.getElementById('fp4').value;
+  if(!id||!mo||!a){alert('Fill all fields!');return;}
+  var fe=ga('ac_f_'+id);fe.push({mo:mo,a:a,st:'Paid',mode:mode});sa('ac_f_'+id,fe);
+  cm('m5');alert('Payment recorded!');['fp1','fp2'].forEach(function(x){document.getElementById(x).value='';});
+}
+function saveNote(){
+  var t=document.getElementById('nt1').value.trim();var s=document.getElementById('nt2').value;var d=document.getElementById('nt3').value.trim();
+  if(!t){alert('Enter title!');return;}
+  var no=ga('ac_no');no.push({t:t,s:s,d:new Date().toISOString().split('T')[0],desc:d});sa('ac_no',no);
+  cm('m6');alert('Note added!');document.getElementById('nt1').value='';document.getElementById('nt3').value='';
+}
+</script>
+</body>
+</html>
